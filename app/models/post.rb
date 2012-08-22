@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content, :name, :title, :tags_attributes
+  attr_accessible :content, :name, :title, :tags_attributes, :name_confirmation
 
-  validates :name,  :presence => true
+  validates :name,  :presence => true, :confirmation => true
+  validates :name_confirmation, presence: true
   validates :title, :presence => true, :length => { :minimum => 5 }
 
   has_many :comments, :dependent => :destroy
