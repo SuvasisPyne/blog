@@ -1,0 +1,7 @@
+class GoodnessValidator < ActiveModel::Validator
+  def validate(record)
+    if record.name == "evil"
+      record.errors[:base] << "You are necessary Evil"
+    end
+  end
+end
